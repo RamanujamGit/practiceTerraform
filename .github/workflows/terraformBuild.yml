@@ -16,4 +16,7 @@ jobs:
       - name: Terraform check
         run: terraform version
 
+      - name: Terraform initialization
+        run: terraform init
+
 
