@@ -17,6 +17,9 @@ jobs:
         run: terraform version
 
       - name: Terraform initialization
+        working-directory: /src
         run: terraform init
+
+      
 
 
