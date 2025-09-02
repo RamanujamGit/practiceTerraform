@@ -16,4 +16,8 @@ jobs:
       - name: Terraform check
         run: terraform version
 
+      - name: Terraform initialization
+        working-directory: src/
+        run: terraform init
+
 
