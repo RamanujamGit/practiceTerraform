@@ -6,3 +6,13 @@ terraform {
     }
   }
 }
+
+provider "azurerm" {
+  features {}
+
+}
+
+resource "azurerm_resource_group" "RG1" {
+  name     = "terraformPractice"
+  location = "EAST US"
+}
