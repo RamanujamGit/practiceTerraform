@@ -22,7 +22,7 @@ terraform {
   }
 }
 
-data "azurerm_management_group" "rg1" {
+data "azurerm_resource_group" "rg1" {
   name = "practiceTerraform"
 }
 
