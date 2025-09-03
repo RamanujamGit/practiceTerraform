@@ -27,7 +27,7 @@ data "azurerm_resource_group" "rg1" {
 }
 
 output "resource_group_name" {
-  value = data.azurerm_management_group.rg1.name
+  value = data.azurerm_resource_group.rg1.name
 }
 
 
