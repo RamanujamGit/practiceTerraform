@@ -31,7 +31,7 @@ output "resource_group_name" {
 
 
 resource "azurerm_resource_group" "RG2" {
-  name     = "test terraform"
+  name     = "testTerraform"
   location = "West Europe"
 }
 
