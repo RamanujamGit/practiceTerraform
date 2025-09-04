@@ -1,5 +1,5 @@
 module "devmodule" {
   source = "./modules/resource-group"
-  rg_name = var.rg_name
-  location = var.location
+  name_rg = var.rg_name
+  locations = var.location
 }
