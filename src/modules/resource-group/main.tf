@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "RG2" {
-  name     = "testTerraform"
-  location = "West Europe"
+  name     = var.rg_name
+  location = var.location
   tags = {
     environment = "dev"
   }
