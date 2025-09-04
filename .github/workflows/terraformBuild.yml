@@ -21,7 +21,7 @@ jobs:
         run: terraform init
 
       - name: terraform validation
-        working-directory: src/modules
+        working-directory: src/
         run: terraform validate
         env:
           ARM_CLIENT_ID: ${{secrets.AZURE_CLIENT_ID}}
@@ -32,7 +32,7 @@ jobs:
 
           
       - name: terraform dry run
-        working-directory: src/modules
+        working-directory: src/
         run: terraform plan
         env:
           ARM_CLIENT_ID: ${{secrets.AZURE_CLIENT_ID}}
