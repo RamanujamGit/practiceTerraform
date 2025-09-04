@@ -1,3 +1,7 @@
-output "resource_group_name" {
-  value = azurerm_resource_group.RG2.name
+output "rgname" {
+  value = module.devmodule.resource_group_name
+}
+
+output "rglocation" {
+  value = module.devmodule.resource_group_location
 }
