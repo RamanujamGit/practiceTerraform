@@ -21,13 +21,13 @@ variable "subnet2Name" {
     description = "subnet2 name"
 }
 
-variable "ipsubnet1" {
+variable "ipSubnet1" {
     type = list(string)
     description = "subnet1 addrees prefix"
 }
 
 
-variable "ipsubet2" {
+variable "ipSubet2" {
     type  =  list(string)
     description = "subnet2 addrees prefix"
 }
