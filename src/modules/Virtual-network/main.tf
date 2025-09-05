@@ -1,4 +1,4 @@
-resource "azurerm_virtual_network" "vnet1" {
+resource "azurerm_virtual_network" "vnetwork1" {
 name                 = var.vnetName
 location             = var.vnetRgLocation
 resource_group_name  = var.vnetRgName
@@ -10,7 +10,7 @@ subnet {
       address_prefixes = var.ipSubnet1
 }
 subnet {
-      name = var.subnet1Name
+      name = var.subnet2Name
       address_prefixes = var.ipSubnet2
 }
 
