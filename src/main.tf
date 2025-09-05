@@ -8,6 +8,8 @@ module "resourceGroup" {
 
 module "vnet1" {
     source = "./modules/virtual-network"
+    vnetRgName = module.resourceGroup.resourceGroupName
+    vnetRgLocation = module.rsourceGroup.resourceGroupLocation
     vnetName = "eventhub_virtualNetwork"
     dnsServers = ["10.1.0.4","10.1.0.5"]
     addressSpace = ["10.1.0.0/16"]

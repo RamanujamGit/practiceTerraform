@@ -1,9 +1,9 @@
-variable "rg_name" {
+variable "vnetRgName" {
     type   =   string
     description = "This is the name of resource group"
 }
 
-variable "location" {
+variable "vnetRgLocation" {
     type   =  string
     description = "location of resource group"
 }

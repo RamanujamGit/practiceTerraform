@@ -1,7 +1,7 @@
 resource "azurerm_virtual_network" "vnet1" {
 name                 = var.vnetName
-location             = var.location
-resource_group_name  = var.rg_name
+location             = var.vnetRgLocation
+resource_group_name  = var.vnetRgName
 address_space        = var.addressSpace
 dns_servers          = var.dnsServers
 
