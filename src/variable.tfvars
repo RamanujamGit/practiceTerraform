@@ -1,6 +1,6 @@
 rg_name = "rg_eventhub"
 location = "West Europe"
-vnetName = "eventhub_virtualNetwork"  
+vnetName = "eventhub_virtualNetwork"
 dnsServers = ["10.1.0.4","10.1.0.5"]
 addressSpace = [10.1.0.0/16]
 subnet1Name = "subnet1"
