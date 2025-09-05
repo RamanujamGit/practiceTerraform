@@ -6,11 +6,11 @@ address_space        = var.addressSpace
 dns_servers          = var.dnsServers
 
 subnet {
-      name = var.subnet1
+      name = var.subnet1Name
       address_prefixes = var.ipSubnet1
 }
 subnet {
-      name = var.subnet2
+      name = var.subnet1Name
       address_prefixes = var.ipSubnet2
 }
 
