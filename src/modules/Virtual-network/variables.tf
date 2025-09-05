@@ -27,7 +27,7 @@ variable "ipSubnet1" {
 }
 
 
-variable "ipSubet2" {
+variable "ipSubnet2" {
     type  =  list(string)
     description = "subnet2 addrees prefix"
 }
