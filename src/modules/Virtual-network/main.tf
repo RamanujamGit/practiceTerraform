@@ -11,7 +11,7 @@ subnet {
 }
 subnet {
       name = var.subnet2
-      address_prefixes = var.ipsubet2
+      address_prefixes = var.ipSubet2
 }
 
 
