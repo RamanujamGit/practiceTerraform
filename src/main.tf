@@ -1,18 +1,18 @@
 module "resourceGroup" {
     source = "./modules/resource-group"
-    rg_name = var.rg_name
-    location = var.location
+    rg_name = "rg_eventhub"
+    location = "West Europe"
 
 }
 
 
 module "vnet1" {
     source = "./modules/virtual-network"
-    vnetName = var.vnetName
-    dnsServers = var.dnsServers
-    addressSpace = var.addressSpace
-    subnet1Name = var.subnet1Name
-    subnet2Name = var.subnet2Name
-    ipSubnet1 = var.ipSubnet1
-    ipSubnet2 = var.ipSubnet2
+    vnetName = "eventhub_virtualNetwork"
+    dnsServers = ["10.1.0.4","10.1.0.5"]
+    addressSpace = [10.1.0.0/16]
+    subnet1Name = "subnet1"
+    subnet2Name = "subnet2"
+    ipSubnet1 = [10.1.1.0/24]
+    ipSubnet2 = [10.1.2.0/24]
 }
