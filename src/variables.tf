@@ -14,7 +14,7 @@ variable "vnetName" {
 }
 
 variable "dnsServers" {
-    type = list
+    type = list(string)
     description = "dns servers ip"
 }
 
@@ -30,17 +30,17 @@ variable "subnet2Name" {
 }
 
 variable "ipsubnet1" {
-    type = list
+    type = list(string)
     description = "subnet1 addrees prefix"
 }
 
 
 variable "ipsubet2" {
-    type  =  list
+    type  =  list(string)
     description = "subnet2 addrees prefix"
 }
 
 variable "addressSpace" {
-    type = list
+    type = list(string)
     description = "Enter address space"
 }
