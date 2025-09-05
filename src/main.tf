@@ -10,9 +10,9 @@ module "vnet1" {
     source = "./modules/virtual-network"
     vnetName = "eventhub_virtualNetwork"
     dnsServers = ["10.1.0.4","10.1.0.5"]
-    addressSpace = [10.1.0.0/16]
+    addressSpace = ["10.1.0.0/16"]
     subnet1Name = "subnet1"
     subnet2Name = "subnet2"
-    ipSubnet1 = [10.1.1.0/24]
-    ipSubnet2 = [10.1.2.0/24]
+    ipSubnet1 = ["10.1.1.0/24"]
+    ipSubnet2 = ["10.1.2.0/24"]
 }
