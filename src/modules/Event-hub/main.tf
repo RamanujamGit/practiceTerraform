@@ -12,7 +12,7 @@ resource "azurerm_eventhub_namespace" "EvntHubNS" {
 }
 
 resource "azurerm_eventhub" "EvntHub" {
-  name              = Eventhub_name
+  name              = var.Eventhub_name
   namespace_id      = azurerm_eventhub_namespace.EvntHubNS.id
   partition_count   = var.partitionCount
   message_retention = var.messageRetention
