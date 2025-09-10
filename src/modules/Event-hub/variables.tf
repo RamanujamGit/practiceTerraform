@@ -25,18 +25,18 @@ variable "pricingTier" {
 }
 
 variable "ThroughputUnits" {
-    type = int
+    type = number
     description = "Number of throughput Units"
 }
 
 
 variable "partitionCount" {
-    type = int
+    type = number
     description = "Number of throughput Units"
 }
 
 variable "messageRetention" {
-    type = int
+    type = number
     description = "Number of throughput Units"
 }
 
