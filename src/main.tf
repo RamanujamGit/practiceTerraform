@@ -26,7 +26,7 @@ module "EventHub_Azure" {
     Eventhub_name = "learnEventHub"
     EventHubRgName = module.resourceGroup.resourceGroupName
     EventHubRgLocation = module.resourceGroup.resourceGroupLocation
-    pricingTier = "standard"
+    pricingTier = "Standard"
     ThroughputUnits = 1
     partitionCount = 2
     messageRetention = 1
