@@ -1,6 +1,6 @@
 
 resource "azurerm_eventhub_namespace" "EvntHubNS" {
-  name                = Namespace_name
+  name                = var.Namespace_name
   location            = var.EventHubRgLocation
   resource_group_name = var.EventHubRgName
   sku                 = var.pricingTier
