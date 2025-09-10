@@ -22,7 +22,7 @@ module "vnet1" {
 
 module "EventHub_Azure" {
     source = "./modules/Event-hub"
-    Namespace_name = "learnEventhub"
+    Namespace_name = "learnEventhub-deveolpmentenv"
     Eventhub_name = "learnEventHub"
     EventHubRgName = module.resourceGroup.resourceGroupName
     EventHubRgLocation = module.resourceGroup.resourceGroupLocation
