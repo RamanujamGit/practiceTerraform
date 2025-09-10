@@ -18,3 +18,18 @@ module "vnet1" {
     ipSubnet1 = ["10.1.1.0/24"]
     ipSubnet2 = ["10.1.2.0/24"]
 }
+
+
+module "EventHub_Azure" {
+    source = "./modules/Event-hub"
+    Namespace_name = "learnEventhub"
+    Eventhub_name = "learnEventHub"
+    EventHubRgName = module.resourceGroup.resourceGroupName
+    EventHubRgLocation = module.resourceGroup.resourceGroupLocation
+    pricingTier = "standard"
+    ThroughputUnits = 1
+    partitionCount = 2
+    messageRetention = 1
+
+
+}
