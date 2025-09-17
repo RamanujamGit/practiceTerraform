@@ -41,7 +41,7 @@ module "AzureDNS" {
     DNS_rg_Name = module.resourceGroup.resourceGroupName
     vnetId = module.vnet1.vnetId
     vnetLinkName = "vnet-link1"
-    recordSetName = rset1
+    recordSetName = "rset1"
     IpAddress = ["10.1.1.11"]
 
 }
