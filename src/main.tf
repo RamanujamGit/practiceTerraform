@@ -39,5 +39,7 @@ module "AzureDNS" {
     source = "./modules/AzureDNS"
     DNS_Name = "privatednszone.app"
     DNS_rg_Name = module.resourceGroup.resourceGroupName
+    vnetId = module.vnet1.vnetId
+    vnetLinkName = "vnet-link1"
 
 }
