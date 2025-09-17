@@ -16,3 +16,13 @@ resource "azurerm_private_dns_zone_virtual_network_link" "vnetlink" {
   virtual_network_id    = var.vnetId   # Pass your VNet ID as a variable or output
   registration_enabled  = false
 }
+
+
+resource "azurerm_private_dns_a_record" "rset" {
+  name                = var.recordSetName
+  zone_name           = local.PrZoneName
+  resource_group_name = local.PrZoneRGname
+  ttl                 = 300
+  records             = var.IpAddress
+}
+

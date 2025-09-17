@@ -18,3 +18,13 @@ variable "vnetLinkName" {
     type = string
     description = "This is the vnet link name"
 }
+
+variable "recordSetName" {
+    type = string
+    description = "This is the recordset name"
+}
+
+variable "IpAddress" {
+    type = list(string)
+    description = "This is the ipaddress"
+}
