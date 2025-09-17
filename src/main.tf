@@ -38,6 +38,6 @@ module "EventHub_Azure" {
 module "AzureDNS" {
     source = "./modules/AzureDNS"
     DNS_Name = "privatednszone.app"
-    DNS_rg_Name = module.resourcegroup.resourceGroupName
+    DNS_rg_Name = module.resourceGroup.resourceGroupName
 
 }
