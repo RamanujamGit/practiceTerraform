@@ -55,7 +55,7 @@ module "prEndpoint" {
     subnet_id = module.vnet1.subnet1_id
     PscName = "eventhub-psc"
     EventhubNSid = module.EventHub_Azure.Eventhub_ns_id
-    prDNSZoneID = module.AzureDNS.privateDNSzoneID
+    prDNSZoneID = [module.AzureDNS.privateDNSzoneID]
 
 
 }
