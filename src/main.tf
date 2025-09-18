@@ -45,3 +45,17 @@ module "AzureDNS" {
     IpAddress = ["10.1.1.11"]
 
 }
+
+
+module "prEndpoint" {
+    source = "./modules/Private-End-Point"
+    privateEndpointName = "Eventhub_Endpoint"
+    prEndPoint_rg_name = module.resourceGroup.resourceGroupName
+    prEndPoint_rg_location = module.resourceGroup.resourceGroupLocation
+    subnet_id = module.vnet1.subnet1_id
+    PscName = "eventhub-psc"
+    EventhubNSid = module.EventHub_Azure.Eventhub_ns_id
+    prDNSZoneID = modue.AzureDNS.privateDNSzoneID
+
+
+}
