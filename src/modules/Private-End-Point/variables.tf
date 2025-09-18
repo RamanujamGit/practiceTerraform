@@ -31,7 +31,7 @@ variable "EventhubNSid" {
 
 
 variable "prDNSZoneID" {
-    type = string
+    type = list(string)
     description = "DNS zone id"
 }
 
