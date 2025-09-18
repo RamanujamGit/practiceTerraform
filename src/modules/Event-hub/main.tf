@@ -17,3 +17,11 @@ resource "azurerm_eventhub" "EvntHub" {
   partition_count   = var.partitionCount
   message_retention = var.messageRetention
 }
+
+
+resource "azurerm_eventhub_namespace_schema_group" "EHSchemaGroup" {
+  name                 = "example-schemaGroup"
+  namespace_id         = azurerm_eventhub_namespace.EvntHubNS.id
+  schema_compatibility = "Forward"
+  schema_type          = "Avro"
+}
