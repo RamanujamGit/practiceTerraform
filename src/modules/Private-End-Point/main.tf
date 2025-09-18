@@ -6,7 +6,7 @@ resource "azurerm_private_endpoint" "eventhub_pe" {
 
   private_service_connection {
     name                           = var.PscName
-    private_connection_resource_id = EventhubNSid
+    private_connection_resource_id = var.EventhubNSid
     subresource_names              = ["namespace"]
     is_manual_connection           = false
   }
@@ -17,3 +17,4 @@ resource "azurerm_private_endpoint" "eventhub_pe" {
   }
 }
 
+ 
