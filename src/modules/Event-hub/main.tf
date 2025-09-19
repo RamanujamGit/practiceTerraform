@@ -25,3 +25,11 @@ resource "azurerm_eventhub_namespace_schema_group" "EHSchemaGroup" {
   schema_compatibility = "Forward"
   schema_type          = "Avro"
 }
+
+
+resource "azurerm_eventhub_consumer_group" "cg" {
+  name                = "cg-demo"
+  namespace_name      = azurerm_eventhub_namespace.EvntHubNS.name
+  eventhub_name       = azurerm_eventhub.EvntHub.name
+  resource_group_name = var.EventHubRgName
+}
