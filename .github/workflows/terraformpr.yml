@@ -1,4 +1,4 @@
-name: terraformBuild
+name: terraformpr
 
 on:
   push:
