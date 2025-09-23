@@ -7,8 +7,7 @@ on:
   pull_request:
     branches:
       - main   # Triggers the workflow for pull requests targeting the main branch
-    paths:
-      - src/** 
+ 
   workflow_dispatch:
 
 jobs:
