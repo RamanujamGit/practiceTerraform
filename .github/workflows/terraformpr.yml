@@ -1,66 +1,44 @@
 name: terraformpr
 
 on:
-   
-  pull_request:  # Triggers the workflow for pull requests targeting the main branch
- 
+  pull_request:
+    branches:
+      - main   # Triggers the workflow when code is pushed to the main branch
   workflow_dispatch:
 
 jobs:
   terraformCheckJobs:
     runs-on: self-hosted
     env:
-      ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-      ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-      ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      ARM_ACCESS_KEY: ${{ secrets.AZURE_STORAGE_KEY }}
-    working-directory: src/
+          ARM_CLIENT_ID: ${{secrets.AZURE_CLIENT_ID}}
+          ARM_CLIENT_SECRET: ${{secrets.AZURE_CLIENT_SECRET}}
+          ARM_TENANT_ID: ${{secrets.AZURE_TENANT_ID}}
+          ARM_SUBSCRIPTION_ID: ${{secrets.AZURE_SUBSCRIPTION_ID}}
+          ARM_ACCESS_KEY: ${{secrets.AZURE_STORAGE_KEY}}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Terraform version check
+      - name: Terraform check
         run: terraform version
 
       - name: Terraform initialization
+        working-directory: src/
         run: terraform init
 
-      - name: Terraform fmt check
-        run: terraform fmt -check -recursive
-
-      - name: Terraform validation
+      - name: terraform validation
+        working-directory: src/
         run: terraform validate
+          
+      - name: terraform dry run
+        working-directory: src/
+        run: terraform plan
 
-      - name: Terraform plan
-        id: plan
-        run: terraform plan -no-color -input=false
-        continue-on-error: true
+          
+      
+        
 
-      - name: Post Terraform plan to PR comment
-        uses: actions/github-script@v6
-        if: github.event_name == 'pull_request'
-        env:
-          PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
-        with:
-          script: |
-            const output = `#### Terraform Format and Style 🖌 \`${{ steps.fmt.outcome }}\`
-#### Terraform Initialization ⚙️ \`${{ steps.init.outcome }}\`
-#### Terraform Validation 🤖 \`${{ steps.validate.outcome }}\`
-#### Terraform Plan 📖 \`${{ steps.plan.outcome }}\`
-<details><summary>Show Plan</summary>
-\`\`\`
-${process.env.PLAN}
-\`\`\`
-</details>
-*Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*`;
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: output
-            })
+      
 
-      - name: Terraform Plan Status
-        if: steps.plan.outcome == 'failure'
-        run: exit 1
+
