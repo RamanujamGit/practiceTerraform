@@ -73,7 +73,7 @@ module "prEndpoint" {
     prEndPoint_rg_location = module.resourceGroup.resourceGroupLocation
     subnet_id = module.vnet1.subnet1_id
     PscName = "eventhub-psc"
-    EventhubNSid = module.EventHub_Azure.Eventhub_ns_id
+    EventhubNSid = values(module.EventHub_Azure.Eventhub_ns_id)
     prDNSZoneID = [module.AzureDNS.privateDNSzoneID]
 
 
