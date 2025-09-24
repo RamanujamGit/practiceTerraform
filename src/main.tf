@@ -24,7 +24,7 @@ module "vnet1" {
 locals {
   namespaces = [
     {
-      name                = "ns1"
+      name                = "Multinamespace1"
       resource_group_name = module.resourceGroup.resourceGroupName
       location            = module.resourceGroup.resourceGroupLocation
       sku                 = "Standard"
@@ -35,7 +35,7 @@ locals {
       ]
     },
     {
-      name                = "ns2"
+      name                = "multinamespace2"
       resource_group_name = module.resourceGroup.resourceGroupName
       location            = module.resourceGroup.resourceGroupLocation
       sku                 = "Standard"
