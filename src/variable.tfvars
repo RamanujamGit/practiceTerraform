@@ -1,6 +1,8 @@
 namespaces = [
   {
     name                = "ns1"
+    resource_group_name = module.resourceGroup.resourceGroupName
+    location = module.resourceGroup.resourceGroupLocation
     sku                 = "Standard"
     capacity            = 1
     eventhubs = [
@@ -10,6 +12,8 @@ namespaces = [
   },
   {
     name                = "ns2"
+    resource_group_name = module.resourceGroup.resourceGroupName
+    location = module.resourceGroup.resourceGroupLocation
     sku                 = "Standard"
     capacity            = 2
     eventhubs = [

@@ -23,10 +23,6 @@ module "vnet1" {
 module "EventHub_Azure" {
     source = "./modules/Event-hub"
     namespaces = var.namespaces
-    resource_group_name = module.resourceGroup.resourceGroupName
-    location = module.resourceGroup.resourceGroupLocation
-
-
 }
 
 
