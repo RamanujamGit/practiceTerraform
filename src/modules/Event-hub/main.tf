@@ -2,8 +2,8 @@
 resource "azurerm_eventhub_namespace" "EvntHubNS" {
   for_each            = { for ns in var.namespaces : ns.name => ns }
   name                = each.value.name
-  location            = var.EventHubRgLocation
-  resource_group_name = var.EventHubRgName
+  location            = each.value.location
+  resource_group_name = each.value.resource_group_name
   sku                 = each.value.sku
   capacity            = each.value.capacity
 
