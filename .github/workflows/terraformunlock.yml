@@ -30,7 +30,7 @@ jobs:
           
       - name: terraform release lock
         working-directory: src/
-        run: terraform force-unlock ${{vars.lockid}}
+        run: terraform force-unlock -force ${{vars.lockid}}
 
 
           
