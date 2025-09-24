@@ -22,14 +22,9 @@ module "vnet1" {
 
 module "EventHub_Azure" {
     source = "./modules/Event-hub"
-    Namespace_name = "learnEventhub-deveolpmentenv"
-    Eventhub_name = "learnEventHub"
+    namespaces = var.namespaces
     EventHubRgName = module.resourceGroup.resourceGroupName
     EventHubRgLocation = module.resourceGroup.resourceGroupLocation
-    pricingTier = "Standard"
-    ThroughputUnits = 1
-    partitionCount = 2
-    messageRetention = 1
 
 
 }

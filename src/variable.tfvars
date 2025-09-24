@@ -1,9 +1,19 @@
-rg_name = "rg_eventhub"
-location = "West Europe"
-vnetName = "eventhub_virtualNetwork"
-dnsServers = ["10.1.0.4","10.1.0.5"]
-addressSpace = [10.1.0.0/16]
-subnet1Name = "subnet1"
-subnet2Name = "subnet2"
-ipSubnet1 = [10.1.1.0/24]
-ipSubnet2 = [10.1.2.0/24]
+namespaces = [
+  {
+    name                = "ns1"
+    sku                 = "Standard"
+    capacity            = 1
+    eventhubs = [
+      { name = "hub1", partition_count = 2, message_retention = 1 },
+      { name = "hub2", partition_count = 4, message_retention = 3 }
+    ]
+  },
+  {
+    name                = "ns2"
+    sku                 = "Standard"
+    capacity            = 2
+    eventhubs = [
+      { name = "hub3", partition_count = 2, message_retention = 2 }
+    ]
+  }
+]

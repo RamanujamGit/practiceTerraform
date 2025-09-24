@@ -9,9 +9,18 @@ variable "EventHubRgLocation" {
 }
 
 
-variable "Namespace_name" {
-    type = string
-    default = "This field is the name of the namespace"
+variable "namespaces" {
+  description = "List of Event Hub namespaces and their event hubs"
+  type = list(object({
+    name                = string
+    sku                 = string
+    capacity            = number
+    eventhubs = list(object({
+      name              = string
+      partition_count   = number
+      message_retention = number
+    }))
+  }))
 }
 
 variable "Eventhub_name" {
