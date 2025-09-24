@@ -1,3 +1,3 @@
 output "Eventhub_ns_id" {
-    value = azurerm_eventhub_namespace.EvntHubNS.id
+    value = { for k, ns in azurerm_eventhub_namespace.EvntHubNS : k => ns.id }
 }

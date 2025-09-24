@@ -40,7 +40,7 @@ for_each = {
 resource "azurerm_eventhub_namespace_schema_group" "EHSchemaGroup" {
   for_each             = azurerm_eventhub_namespace.EvntHubNS
   name                 = "example-schemaGroup"
-  namespace_id         = azurerm_eventhub_namespace.EvntHubNS.id
+  namespace_id         = each.value.id
   schema_compatibility = "Forward"
   schema_type          = "Avro"
 }
@@ -49,7 +49,7 @@ resource "azurerm_eventhub_namespace_schema_group" "EHSchemaGroup" {
 resource "azurerm_eventhub_consumer_group" "cg" {
   for_each = azurerm_eventhub.EvntHub
   name                = "cg-demo"
-  namespace_name      = azurerm_eventhub_namespace.EvntHubNS.name
-  eventhub_name       = azurerm_eventhub.EvntHub.name
-  resource_group_name = var.EventHubRgName
+  namespace_name      = each.value.namespace_name
+  eventhub_name       = each.value.name
+  resource_group_name = each.value.resource_group_name
 }
