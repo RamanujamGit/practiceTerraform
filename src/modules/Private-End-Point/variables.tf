@@ -25,7 +25,7 @@ variable "PscName" {
 }
 
 variable "EventhubNSid" {
-    type = string
+    type = list(string)
     description = "This is eventhub namespace id"
 }
 
