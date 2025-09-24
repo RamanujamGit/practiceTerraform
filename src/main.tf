@@ -20,9 +20,37 @@ module "vnet1" {
 }
 
 
+
+locals {
+  namespaces = [
+    {
+      name                = "ns1"
+      resource_group_name = module.resourceGroup.resourceGroupName
+      location            = module.resourceGroup.resourceGroupLocation
+      sku                 = "Standard"
+      capacity            = 1
+      eventhubs = [
+        { name = "hub1", partition_count = 2, message_retention = 1 },
+        { name = "hub2", partition_count = 4, message_retention = 3 }
+      ]
+    },
+    {
+      name                = "ns2"
+      resource_group_name = module.resourceGroup.resourceGroupName
+      location            = module.resourceGroup.resourceGroupLocation
+      sku                 = "Standard"
+      capacity            = 2
+      eventhubs = [
+        { name = "hub3", partition_count = 2, message_retention = 2 }
+      ]
+    }
+  ]
+}
+
+
 module "EventHub_Azure" {
     source = "./modules/Event-hub"
-    namespaces = var.namespaces
+    namespaces = local.namespaces
 }
 
 
