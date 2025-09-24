@@ -1,4 +1,4 @@
-name: terraformpr
+name: terraformunlock
 
 on:
   workflow_dispatch:
